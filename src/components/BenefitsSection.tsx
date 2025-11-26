@@ -31,45 +31,50 @@ const BenefitsSection = () => {
 
   return (
     <section className="py-20 lg:py-28 bg-background relative overflow-hidden">
-      <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-primary/5 blur-3xl rounded-full"></div>
+      <div className="absolute bottom-0 right-0 w-1/2 h-2/3 bg-gradient-to-tl from-primary/10 via-primary/5 to-transparent blur-3xl"></div>
+      <div className="absolute top-0 left-0 w-1/3 h-1/2 bg-gradient-to-br from-purple-500/8 to-transparent blur-3xl"></div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
           <ScrollAnimation>
-            <div className="text-center mb-12">
-              <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
+            <div className="text-center mb-16">
+              <span className="inline-block px-5 py-2.5 bg-gradient-to-r from-primary/15 via-primary/10 to-primary/15 text-primary rounded-full text-sm font-semibold mb-6 border border-primary/20 shadow-lg shadow-primary/5">
                 Por Que Escolher a TW
               </span>
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+              <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-6">
                 Benefícios que Fazem a
                 <span className="text-gradient-primary"> Diferença</span>
               </h2>
-              <p className="text-base text-foreground/70 max-w-2xl mx-auto">
+              <p className="text-lg text-foreground/70 max-w-2xl mx-auto leading-relaxed">
                 Não somos apenas desenvolvedores. Somos parceiros estratégicos no seu crescimento digital.
               </p>
             </div>
           </ScrollAnimation>
 
-          <div className="grid md:grid-cols-2 gap-5">
+          <div className="grid md:grid-cols-2 gap-6">
             {benefits.map((benefit, index) => (
               <ScrollAnimation key={index} delay={index * 0.1}>
                 <div
-                  className="group bg-gradient-to-br from-card/80 via-card/60 to-secondary/10 backdrop-blur-sm border border-border/50 rounded-xl p-6 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-black/5 hover:-translate-y-0.5 relative overflow-hidden"
+                  className="group bg-gradient-to-br from-card/90 via-card/75 to-secondary/20 backdrop-blur-md border-2 border-border/60 rounded-2xl p-7 hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/12 hover:-translate-y-1 relative overflow-hidden"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/4 via-primary/6 to-transparent opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
+
+                  <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/10 rounded-full blur-3xl group-hover:scale-125 transition-transform duration-700"></div>
+
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 opacity-0 group-hover:opacity-80 transition-opacity duration-500 blur-sm"></div>
 
                   <div className="relative z-10">
-                    <div className="w-14 h-14 bg-gradient-to-br from-primary/15 to-primary/5 rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
-                      <benefit.icon className="w-7 h-7 text-primary" />
+                    <div className="w-16 h-16 bg-gradient-to-br from-primary/12 to-primary/6 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-all duration-500 shadow-lg shadow-primary/6">
+                      <benefit.icon className="w-8 h-8 text-primary" />
                     </div>
 
-                    <h3 className="text-xl font-bold text-foreground mb-2">{benefit.title}</h3>
-                    <p className="text-sm text-foreground/80 leading-relaxed mb-4">{benefit.description}</p>
+                    <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">{benefit.title}</h3>
+                    <p className="text-base text-foreground/80 leading-relaxed mb-5">{benefit.description}</p>
 
-                    <ul className="space-y-2">
+                    <ul className="space-y-3">
                       {benefit.features.map((feature, i) => (
-                        <li key={i} className="flex items-center gap-2.5 text-sm text-foreground/70">
-                          <div className="w-1 h-1 bg-primary rounded-full flex-shrink-0"></div>
+                        <li key={i} className="flex items-center gap-3 text-sm text-foreground/70 group-hover:text-foreground/80 transition-colors">
+                          <div className="w-1.5 h-1.5 bg-primary/90 rounded-full flex-shrink-0 shadow-lg shadow-primary/30"></div>
                           <span>{feature}</span>
                         </li>
                       ))}

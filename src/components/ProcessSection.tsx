@@ -1,4 +1,4 @@
-import { FileText, Code, TestTube, Rocket, Headphones } from "lucide-react";
+import { FileText, Code, FlaskConical, Rocket, Headphones } from "lucide-react";
 import ScrollAnimation from "./ScrollAnimation";
 
 const ProcessSection = () => {
@@ -17,7 +17,7 @@ const ProcessSection = () => {
     },
     {
       number: "03",
-      icon: TestTube,
+      icon: FlaskConical,
       title: "Testes",
       description: "Validamos cada funcionalidade para garantir qualidade total",
     },
@@ -60,16 +60,15 @@ const ProcessSection = () => {
             <div className="hidden lg:block absolute top-24 left-0 right-0 h-1 bg-border/50">
               <div className="h-full w-full bg-gradient-to-r from-primary via-primary/50 to-primary"></div>
             </div>
-
-            <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-4">
+            <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-4 items-stretch">
               {steps.map((step, index) => (
-                <ScrollAnimation key={index} delay={index * 0.15} className="relative group">
-                  <div>
+                <ScrollAnimation key={index} delay={index * 0.15} className="relative group h-full">
+                  <div className="h-full">
                     {index < steps.length - 1 && (
                       <div className="lg:hidden absolute left-1/2 top-20 w-1 h-full bg-gradient-to-b from-primary/40 to-transparent -ml-0.5 z-0"></div>
                     )}
 
-                    <div className="relative bg-gradient-to-br from-card via-card to-secondary/20 border border-border rounded-2xl p-6 hover:border-border/60 transition-all duration-300 hover:shadow-2xl hover:shadow-black/10 hover:-translate-y-1 z-10">
+                    <div className="relative bg-gradient-to-br from-card via-card to-secondary/20 border border-border rounded-2xl p-6 hover:border-border/60 transition-all duration-300 hover:shadow-2xl hover:shadow-black/10 hover:-translate-y-1 z-10 h-full flex flex-col">
                       <div className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center font-bold text-background shadow-lg">
                         {step.number}
                       </div>

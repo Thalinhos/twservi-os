@@ -5,32 +5,39 @@ import { Button } from "./ui/button";
 const CasesSection = () => {
   const cases = [
     {
-      client: "Elegância Moda",
+      client: "Bazar Elegance",
       category: "E-Commerce",
-      image: "bg-gradient-to-br from-pink-500/20 to-rose-500/20", // Placeholder
-      result: "+250% Vendas",
+      image: "bg-gradient-to-br from-pink-500/20 to-rose-500/20",
+      result: "Vendas",
       description: "Implementação de loja virtual completa com integração de pagamentos e recuperação de carrinho.",
     },
     {
-      client: "Clínica Saúde Total",
-      category: "Landing Page",
-      image: "bg-gradient-to-br from-blue-500/20 to-cyan-500/20", // Placeholder
-      result: "+180% Agendamentos",
+      client: "Clínica Odontológica Uteich",
+      category: "Sistema Web",
+      image: "bg-gradient-to-br from-blue-500/20 to-cyan-500/20",
+      result: "Agendamentos",
       description: "Página de alta conversão focada em agendamento de consultas via WhatsApp.",
     },
     {
-      client: "Mecânica Premium",
-      category: "Site Institucional",
-      image: "bg-gradient-to-br from-orange-500/20 to-red-500/20", // Placeholder
-      result: "+320% Leads",
-      description: "Site profissional com otimização SEO local para atrair mais clientes da região.",
+      client: "GameHub",
+      category: "Site Blog",
+      image: "bg-gradient-to-br from-orange-500/20 to-red-500/20",
+      result: "Leads",
+      description: "Site profissional com otimização SEO para atrair mais clientes.",
     },
     {
-      client: "Tech Solutions",
+      client: "Tech Quebrada",
       category: "Sistema Web",
-      image: "bg-gradient-to-br from-purple-500/20 to-indigo-500/20", // Placeholder
+      image: "bg-gradient-to-br from-purple-500/20 to-indigo-500/20",
       result: "Automação Total",
       description: "Dashboard administrativo personalizado para gestão de processos internos.",
+    },
+    {
+      client: "Canil Zannine",
+      category: "Sistema CMS",
+      image: "bg-gradient-to-br from-purple-500/20 to-indigo-500/20",
+      result: "Automação Total",
+      description: "Dashboard administrativo personalizado para gestão de contéudo do Site.",
     },
   ];
 
@@ -57,13 +64,10 @@ const CasesSection = () => {
           {cases.map((item, index) => (
             <ScrollAnimation key={index} delay={index * 0.1}>
               <div className="group relative aspect-video rounded-2xl overflow-hidden border border-border/50 bg-secondary/30 cursor-pointer">
-                {/* Image Placeholder */}
                 <div className={`absolute inset-0 ${item.image} transition-transform duration-500 group-hover:scale-105`}></div>
 
-                {/* Default Overlay (Gradient for readability) */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60 group-hover:opacity-0 transition-opacity duration-300"></div>
 
-                {/* Hover Overlay (Solid Black) */}
                 <div className="absolute inset-0 bg-black/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-8 text-center">
                   <p className="text-white/90 text-base leading-relaxed transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
                     {item.description}
@@ -73,7 +77,6 @@ const CasesSection = () => {
                   </div>
                 </div>
 
-                {/* Always Visible Content (Title & Result) - Fades out on hover */}
                 <div className="absolute inset-0 p-8 flex flex-col justify-end items-start transition-opacity duration-300 group-hover:opacity-0">
                   <span className="inline-block px-3 py-1 bg-primary/90 text-white text-xs font-bold rounded-full mb-3">
                     {item.result}

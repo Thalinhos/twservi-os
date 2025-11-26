@@ -20,9 +20,7 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: MessageSquare, href: "https://wa.me/5551981302801", label: "WhatsApp" },
-    { icon: Instagram, href: "https://instagram.com/twsolucoes", label: "Instagram" },
-    { icon: Linkedin, href: "https://linkedin.com/company/twsolucoes", label: "LinkedIn" },
-    { icon: Github, href: "https://github.com/twsolucoes", label: "GitHub" },
+    { icon: Instagram, href: "https://instagram.com/twsolucoes", label: "Instagram" }
   ];
 
   const scrollToSection = (id: string) => {
@@ -62,6 +60,12 @@ const Footer = () => {
                 <MessageSquare className="w-5 h-5 text-primary" />
                 <a href="https://wa.me/5551981302801" target="_blank" rel="noopener noreferrer" className="text-foreground/80 hover:text-primary transition-colors">
                   (51) 98130-2801
+                </a>
+              </div>
+              <div className="flex items-center gap-3 mt-4">
+                <MessageSquare className="w-5 h-5 text-primary" />
+                <a href="https://wa.me/5551981302801" target="_blank" rel="noopener noreferrer" className="text-foreground/80 hover:text-primary transition-colors">
+                  (51) 99661-5024
                 </a>
               </div>
             </div>
@@ -114,9 +118,9 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="w-10 h-10 bg-secondary hover:bg-primary/20 rounded-lg flex items-center justify-center text-foreground/70 hover:text-primary transition-all duration-300 hover:scale-110 glow-primary-sm"
+                  className="w-9 h-9 hover:rounded-sm hover:bg-primary/20  flex items-center justify-center text-gray-500 hover:text-primary transition-all duration-300 hover:scale-110"
                 >
-                  <social.icon className="w-5 h-5" />
+                  <social.icon className="w-6 h-6" />
                 </a>
               ))}
             </div>
