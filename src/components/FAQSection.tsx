@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import ScrollAnimation from "./ScrollAnimation";
 
 const FAQSection = () => {
   const faqs = [
@@ -47,45 +48,51 @@ const FAQSection = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
-              FAQ
-            </span>
-            <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-6">
-              Perguntas
-              <span className="text-gradient-primary"> Frequentes</span>
-            </h2>
-            <p className="text-lg text-foreground/70">
-              Tire suas dúvidas sobre nossos serviços e processo de trabalho
-            </p>
-          </div>
+          <ScrollAnimation>
+            <div className="text-center mb-16">
+              <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
+                FAQ
+              </span>
+              <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-6">
+                Perguntas
+                <span className="text-gradient-primary"> Frequentes</span>
+              </h2>
+              <p className="text-lg text-foreground/70">
+                Tire suas dúvidas sobre nossos serviços e processo de trabalho
+              </p>
+            </div>
+          </ScrollAnimation>
 
-          <Accordion type="single" collapsible className="space-y-4">
-            {faqs.map((faq, index) => (
-              <AccordionItem
-                key={index}
-                value={`item-${index}`}
-                className="bg-card border border-border rounded-xl px-6 hover:border-primary/50 transition-all duration-300 data-[state=open]:border-primary/50 data-[state=open]:shadow-lg data-[state=open]:shadow-primary/10"
+          <ScrollAnimation delay={0.2}>
+            <Accordion type="single" collapsible className="space-y-4">
+              {faqs.map((faq, index) => (
+                <AccordionItem
+                  key={index}
+                  value={`item-${index}`}
+                  className="bg-card border border-border rounded-xl px-6 hover:border-primary/50 transition-all duration-300 data-[state=open]:border-primary/50 data-[state=open]:shadow-lg data-[state=open]:shadow-primary/10"
+                >
+                  <AccordionTrigger className="text-left text-foreground hover:text-primary text-base lg:text-lg font-semibold py-6 hover:no-underline">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-foreground/80 leading-relaxed pb-6">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </ScrollAnimation>
+
+          <ScrollAnimation delay={0.4}>
+            <div className="mt-12 text-center">
+              <p className="text-foreground/70 mb-4">Não encontrou sua dúvida?</p>
+              <button
+                onClick={() => window.open("https://wa.me/5551981302801?text=Olá! Tenho uma dúvida sobre os serviços.", "_blank")}
+                className="text-primary hover:text-primary/80 font-semibold underline underline-offset-4 transition-colors"
               >
-                <AccordionTrigger className="text-left text-foreground hover:text-primary text-base lg:text-lg font-semibold py-6 hover:no-underline">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-foreground/80 leading-relaxed pb-6">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-
-          <div className="mt-12 text-center">
-            <p className="text-foreground/70 mb-4">Não encontrou sua dúvida?</p>
-            <button
-              onClick={() => window.open("https://wa.me/5551981302801?text=Olá! Tenho uma dúvida sobre os serviços.", "_blank")}
-              className="text-primary hover:text-primary/80 font-semibold underline underline-offset-4 transition-colors"
-            >
-              Fale conosco no WhatsApp →
-            </button>
-          </div>
+                Fale conosco no WhatsApp →
+              </button>
+            </div>
+          </ScrollAnimation>
         </div>
       </div>
     </section>

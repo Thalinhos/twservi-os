@@ -1,137 +1,105 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { TrendingUp, Users, ShoppingCart, MessageSquare, Star } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import ScrollAnimation from "./ScrollAnimation";
+import { Button } from "./ui/button";
 
 const CasesSection = () => {
   const cases = [
     {
-      client: "Elegância Moda Feminina",
-      icon: ShoppingCart,
-      result: "+250% em vendas online",
-      before: "Loja física sem presença digital",
-      after: "E-commerce completo com integração WhatsApp e catálogo digital",
-      technologies: ["React", "Node.js", "Stripe", "WhatsApp API"],
-      testimonial: "A TW transformou nosso negócio. Hoje 70% das vendas vêm do online!",
-      rating: 5,
+      client: "Elegância Moda",
+      category: "E-Commerce",
+      image: "bg-gradient-to-br from-pink-500/20 to-rose-500/20", // Placeholder
+      result: "+250% Vendas",
+      description: "Implementação de loja virtual completa com integração de pagamentos e recuperação de carrinho.",
     },
     {
       client: "Clínica Saúde Total",
-      icon: Users,
-      result: "+180% em agendamentos",
-      before: "Site desatualizado e sem conversão",
-      after: "Landing page moderna com sistema de agendamento online integrado",
-      technologies: ["Next.js", "Tailwind", "Google Calendar API"],
-      testimonial: "Profissionalismo e resultado rápido. Recomendamos de olhos fechados!",
-      rating: 5,
+      category: "Landing Page",
+      image: "bg-gradient-to-br from-blue-500/20 to-cyan-500/20", // Placeholder
+      result: "+180% Agendamentos",
+      description: "Página de alta conversão focada em agendamento de consultas via WhatsApp.",
     },
     {
-      client: "Mecânica Premium Auto",
-      icon: TrendingUp,
-      result: "+320% em leads qualificados",
-      before: "Apenas redes sociais sem site próprio",
-      after: "Website institucional com blog otimizado para SEO e formulários inteligentes",
-      technologies: ["WordPress", "SEO", "Google Analytics"],
-      testimonial: "Em 3 meses já recuperamos o investimento. Vale cada centavo!",
-      rating: 5,
+      client: "Mecânica Premium",
+      category: "Site Institucional",
+      image: "bg-gradient-to-br from-orange-500/20 to-red-500/20", // Placeholder
+      result: "+320% Leads",
+      description: "Site profissional com otimização SEO local para atrair mais clientes da região.",
     },
     {
-      client: "Tech Solutions B2B",
-      icon: MessageSquare,
-      result: "Automação de 80% do atendimento",
-      before: "Atendimento manual via WhatsApp sem escala",
-      after: "Chatbot inteligente + CRM integrado + Dashboard administrativo",
-      technologies: ["Python", "OpenAI", "MongoDB", "React"],
-      testimonial: "Solução sob medida que revolucionou nossa operação. Time excepcional!",
-      rating: 5,
+      client: "Tech Solutions",
+      category: "Sistema Web",
+      image: "bg-gradient-to-br from-purple-500/20 to-indigo-500/20", // Placeholder
+      result: "Automação Total",
+      description: "Dashboard administrativo personalizado para gestão de processos internos.",
     },
   ];
 
   return (
     <section id="cases" className="py-20 lg:py-28 bg-background relative overflow-hidden">
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+      <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
+        <ScrollAnimation>
+          <div className="text-center mb-16">
             <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
               Cases de Sucesso
             </span>
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-              Resultados que
-              <span className="text-gradient-primary"> Falam por Si</span>
+              Resultados Reais
             </h2>
             <p className="text-base text-foreground/70 max-w-2xl mx-auto">
-              Conheça empresas que transformaram seus negócios com nossas soluções
+              Veja como ajudamos empresas a crescerem no digital.
             </p>
           </div>
+        </ScrollAnimation>
 
-          <div className="grid lg:grid-cols-2 gap-5">
-            {cases.map((caseStudy, index) => (
-              <Card
-                key={index}
-                className="group bg-gradient-to-br from-card/80 via-card/60 to-secondary/10 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-xl hover:shadow-black/5 hover:-translate-y-0.5 animate-fade-in relative overflow-hidden"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {cases.map((item, index) => (
+            <ScrollAnimation key={index} delay={index * 0.1}>
+              <div className="group relative aspect-video rounded-2xl overflow-hidden border border-border/50 bg-secondary/30 cursor-pointer">
+                {/* Image Placeholder */}
+                <div className={`absolute inset-0 ${item.image} transition-transform duration-500 group-hover:scale-105`}></div>
 
-                <CardContent className="p-6 relative z-10">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-gradient-to-br from-primary/15 to-primary/5 rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform">
-                        <caseStudy.icon className="w-6 h-6 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-foreground">{caseStudy.client}</h3>
-                        <div className="flex items-center gap-1 mt-0.5">
-                          {Array.from({ length: caseStudy.rating }).map((_, i) => (
-                            <Star key={i} className="w-3.5 h-3.5 text-primary fill-primary" />
-                          ))}
-                        </div>
-                      </div>
-                    </div>
+                {/* Default Overlay (Gradient for readability) */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60 group-hover:opacity-0 transition-opacity duration-300"></div>
+
+                {/* Hover Overlay (Solid Black) */}
+                <div className="absolute inset-0 bg-black/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-8 text-center">
+                  <p className="text-white/90 text-base leading-relaxed transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
+                    {item.description}
+                  </p>
+                  <div className="mt-6 flex items-center gap-2 text-sm font-medium text-primary">
+                    Ver Case Completo <ArrowRight className="w-4 h-4" />
                   </div>
+                </div>
 
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/15 border border-primary/20 rounded-full mb-4">
-                    <TrendingUp className="w-3.5 h-3.5 text-primary" />
-                    <span className="text-primary font-bold text-xs">{caseStudy.result}</span>
-                  </div>
-
-                  <div className="space-y-3 mb-4">
-                    <div className="flex gap-2.5">
-                      <div className="w-1 bg-destructive/50 rounded-full"></div>
-                      <div className="flex-1">
-                        <p className="text-xs text-foreground/50 uppercase font-semibold mb-0.5">Antes</p>
-                        <p className="text-sm text-foreground/80 leading-snug">{caseStudy.before}</p>
-                      </div>
-                    </div>
-                    <div className="flex gap-2.5">
-                      <div className="w-1 bg-primary rounded-full"></div>
-                      <div className="flex-1">
-                        <p className="text-xs text-primary uppercase font-semibold mb-0.5">Depois</p>
-                        <p className="text-sm text-foreground/80 leading-snug">{caseStudy.after}</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {caseStudy.technologies.map((tech, i) => (
-                      <Badge key={i} variant="secondary" className="bg-secondary/70 text-xs px-2 py-0.5">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-
-                  <div className="p-3 bg-gradient-to-r from-secondary/40 to-secondary/20 border-l-2 border-primary rounded-r-lg">
-                    <p className="text-sm text-foreground/90 italic leading-relaxed">"{caseStudy.testimonial}"</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                {/* Always Visible Content (Title & Result) - Fades out on hover */}
+                <div className="absolute inset-0 p-8 flex flex-col justify-end items-start transition-opacity duration-300 group-hover:opacity-0">
+                  <span className="inline-block px-3 py-1 bg-primary/90 text-white text-xs font-bold rounded-full mb-3">
+                    {item.result}
+                  </span>
+                  <h3 className="text-2xl font-bold text-white mb-1">{item.client}</h3>
+                  <p className="text-white/80 text-sm">{item.category}</p>
+                </div>
+              </div>
+            </ScrollAnimation>
+          ))}
         </div>
+
+        <ScrollAnimation delay={0.4}>
+          <div className="text-center mt-12">
+            <Button
+              variant="outline"
+              onClick={() => window.open("https://wa.me/5551981302801?text=Olá! Gostaria de ver mais cases.", "_blank")}
+            >
+              Ver Mais Cases
+            </Button>
+          </div>
+        </ScrollAnimation>
       </div>
     </section>
   );
 };
 
 export default CasesSection;
+
