@@ -7,21 +7,22 @@ const CasesSection = () => {
     {
       client: "Bazar Elegance",
       category: "E-Commerce",
-      image: "/elegance.PNG",
+      image: "/tw-servicos-digitais/elegance.PNG",
       result: "Vendas",
       description: "E-commerce completo com sistema de catálogo de produtos, carrinho de compras e integração de pagamentos.",
     },
     {
       client: "Clínica Odontológica",
       category: "Sistema Web + CMS",
-      image: "/clinicaOdontologica.PNG",
+      image: "/tw-servicos-digitais/clinicaOdontologica.PNG",
+
       result: "Agendamentos",
       description: "Site institucional com CMS para agendamento de clientes, permitindo gestão eficiente de consultas odontológicas.",
     },
     {
       client: "Canil Zannine",
       category: "Sistema CMS",
-      image: "/canilzannine.PNG",
+      image: "/tw-servicos-digitais/canilzannine.PNG",
       result: "Gestão de Conteúdo",
       description: "Sistema CMS completo para cadastro e gerenciamento de conteúdo do site, incluindo filhotes, galeria e informações.",
     },
@@ -49,7 +50,10 @@ const CasesSection = () => {
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {cases.map((item, index) => (
             <ScrollAnimation key={index} delay={index * 0.1}>
-              <div className="group relative aspect-video rounded-2xl overflow-hidden border border-border/50 bg-secondary/30 cursor-pointer">
+              <div
+                className="group relative aspect-video rounded-2xl overflow-hidden border border-border/50 bg-secondary/30 cursor-pointer"
+                onClick={() => window.open(`https://wa.me/5551981302801?text=Olá! Gostaria de saber mais sobre o case ${item.client}.`, "_blank")}
+              >
                 <img
                   src={item.image}
                   alt={item.client}
@@ -63,7 +67,7 @@ const CasesSection = () => {
                     {item.description}
                   </p>
                   <div className="mt-6 flex items-center gap-2 text-sm font-medium text-primary">
-                    Ver Case Completo <ArrowRight className="w-4 h-4" />
+                    Entrar em Contato <ArrowRight className="w-4 h-4" />
                   </div>
                 </div>
 
