@@ -1,6 +1,6 @@
 {
-  "name": "twservi-os",
-  "homepage": "https://thalinhos.github.io/twservi-os/",
+  "name": "twservicos",
+  "homepage": "https://thalinhos.github.io/twservicos/",
   "private": true,
   "version": "0.0.0",
   "type": "module",

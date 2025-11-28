@@ -15,7 +15,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter basename="/twservi-os">
+      <BrowserRouter basename="/twservicos">
         <Suspense fallback={<div className="flex items-center justify-center min-h-screen">Carregando...</div>}>
           <Routes>
             <Route path="/" element={<Index />} />
